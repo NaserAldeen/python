@@ -14,7 +14,7 @@ def calculate_age(year,month,day):
       
      given_date = datetime.datetime.strptime('{}/{}/{}'.format(day,month,year), "%d/%m/%Y").date()
      difference = datetime.date.today() - given_date
-     difference = difference.days
+     difference = difference.months
      print("You are {} years, {} months, and {} days".format(int((difference/365)),int((difference%365)/30),(difference%365)%12))
     
 
