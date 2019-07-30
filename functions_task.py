@@ -1,9 +1,9 @@
-import datetime
+from datetime import date
 
 def check_birthdate(year, month, day):
     if (int(month) > 0 and int(month) <= 12) and (int(day) > 0 and int(day) <= 31):
-        given_date = datetime.datetime.strptime('{}/{}/{}'.format(day,month,year), "%d/%m/%Y").date()
-        if given_date > datetime.date.today():
+        given_date = date(year = int(year), month = int(month), day = int(day))
+        if given_date > date.today():
             return False
         else:
             return True
@@ -12,9 +12,9 @@ def check_birthdate(year, month, day):
 
 def calculate_age(year,month,day):
       
-     given_date = datetime.datetime.strptime('{}/{}/{}'.format(day,month,year), "%d/%m/%Y").date()
-     difference = datetime.date.today() - given_date
-     difference = difference.months
+     given_date = date(year = int(year), month = int(month), day = int(day))
+     difference = date.today() - given_date
+     difference = difference.days
      print("You are {} years, {} months, and {} days".format(int((difference/365)),int((difference%365)/30),(difference%365)%12))
     
 
